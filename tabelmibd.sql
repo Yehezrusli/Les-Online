@@ -61,6 +61,19 @@ CREATE TABLE `kecamatan` (
   `namaKecamatan` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `kecamatan` (`idKecamatan`, `nama`) VALUES
+(1, 'Andir'),
+(2, 'Antapani'),
+(3, 'Arcamanik'),
+(4, 'Babakan Ciparay'),
+(5, 'Gunung Kidul'),
+(6, 'Bandung Kidul'),
+(7, 'Bandung Kaler'),
+(8, 'Astana anyar'),
+(9, 'Bojongloa Kidul'),
+(10, 'Bojongloa Kaler'),
+(11, 'Batununggal');
+
 -- --------------------------------------------------------
 
 --
@@ -72,6 +85,18 @@ CREATE TABLE `kelurahan` (
   `namaKelurahan` varchar(30) NOT NULL,
   `kecamatan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `kelurahan` (`idKelurahan`, `nama`) VALUES
+(1, 'Ciroyom'),
+(2, 'Garuda'),
+(3, 'Maleber'),
+(4, 'Kebon Jeruk'),
+(5, 'Caringin'),
+(6, 'Cigonewa'),
+(7, 'Cijerah'),
+(8, 'Gempol Asri'),
+(9, 'Dago'),
+(10, 'Sekeloa');
 
 -- --------------------------------------------------------
 
@@ -115,16 +140,22 @@ CREATE TABLE `pelajaran` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengguna`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `pengguna` (
+CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `alamat` varchar(100) NOT NULL,
+  `jenisKelamin` varchar(10) NOT NULL,
   `kelurahan` int(11) NOT NULL,
+  `kecamatan` int(11) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `user` (`nama`, `userName`, `alamat`, `jenisKelamin`, `kecamatan`, `kelurahan`, `pass`) VALUES
+('Jason', 'jy', 'jl Pasadena', 'laki-laki', 1, 1, '25f9e794323b453885f5181f1b624d0b'),
+('Yehezkiel', 'kikil', 'Jl kopo no 341', 'laki-laki', 1, 1, '41d96a32a1ba29a6b996e0ae515c4c60');
 
 --
 -- Indexes for dumped tables
