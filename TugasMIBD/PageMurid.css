@@ -113,7 +113,7 @@ img{
 }
 
 table {
-	border: 1px solid teal;
+	border: 1px solid rgb(101, 127, 245);
     border-collapse: collapse;
     margin-top: 3%;
     padding-top: 5%;
@@ -121,7 +121,7 @@ table {
 }
 
 td, tr{
-	border: 1px solid teal;
+	border: 1px solid rgb(101, 127, 245);
     padding: 10px;
     font-size: 25px;
     font-family: fantasy;
