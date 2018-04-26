@@ -147,7 +147,7 @@ CREATE TABLE `user` (
   `jenisKelamin` varchar(10) NOT NULL,
   `kelurahan` int(11) NOT NULL,
   `kecamatan` int(11) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `pass` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `user` (`nama`, `userName`, `alamat`, `jenisKelamin`, `kecamatan`, `kelurahan`, `pass`) VALUES
