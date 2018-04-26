@@ -60,7 +60,7 @@ CREATE TABLE `kecamatan` (
   `namaKecamatan` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `kecamatan` (`idKecamatan`, `nama`) VALUES
+INSERT INTO `kecamatan` (`idKecamatan`, `namaKecamatan`) VALUES
 (1, 'Andir'),
 (2, 'Antapani'),
 (3, 'Arcamanik'),
