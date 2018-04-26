@@ -136,6 +136,16 @@
                 <label>No KTP</label>
                 <input name="KTP" type="text" id="KTP">
                 <br>
+                <label>Pendidikan Terakhir</label>
+                <select name="pendidikan">
+                    <option value="SD">SD</option>
+                    <option value="SMP">SMP</option>
+                    <option value="SMA">SMA</option>
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                    <option value="S3">S3</option>
+                </select>
+                <br>
                 <label>Password</label>
                 <input name="passG" type="password" id="password">
                 <br>
@@ -186,14 +196,13 @@
             $nama = $_POST['namaG'];
             $alamat = $_POST['alamatG'];
             $gender = $_POST['genderG'];
+            $pendidikan = $_POST["pendidikan"];
             $kecamatan = $_POST['KecamatanG'];
-            echo $kecamatan;
             $kelurahan = $_POST['KelurahanG'];
-            echo $kelurahan;
             
             if($pass == $cpass){
                 $insertUser = "INSERT INTO user(nama, userName, alamat, jenisKelamin, idKecamatan, idKelurahan, pass) VALUES('$nama', '$username', '$alamat', '$gender', $kecamatan, $kelurahan, '$hidepass')";  
-                $insertGuru = "INSERT INTO guru(userName, noKTP) VALUES('$username', $noKTP)";
+                $insertGuru = "INSERT INTO guru(userName, noKTP, pendidikanTerakhir) VALUES('$username', $noKTP, '$pendidikan')";
                 $con->query($insertGuru);
                 $con->query($insertUser);
             } else{
