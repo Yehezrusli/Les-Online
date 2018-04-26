@@ -183,7 +183,6 @@ ALTER TABLE `kecamatan`
 --
 ALTER TABLE `kelurahan`
   ADD PRIMARY KEY (`idKelurahan`),
-  ADD KEY `FK_kecamatan` (`kecamatan`);
 
 --
 -- Indexes for table `les`
@@ -213,6 +212,7 @@ ALTER TABLE `pelajaran`
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`username`),
   ADD KEY `FK_kelurahan` (`kelurahan`);
+  ADD KEY `FK_kecamatan` (`kecamatan`);
 
 --
 -- AUTO_INCREMENT for dumped tables
