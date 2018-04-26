@@ -32,7 +32,6 @@ CREATE TABLE `guru` (
   `username` varchar(20) NOT NULL,
   `idGuru` int(11) NOT NULL,
   `pendidikanTerakhir` varchar(10) NOT NULL,
-  `jumlahMengajar` int(11) NOT NULL,
   `noKTP` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -122,8 +121,7 @@ CREATE TABLE `murid` (
   `username` varchar(20) NOT NULL,
   `idMurid` int(11) NOT NULL,
   `kelas` int(11) NOT NULL,
-  `namaSekolah` varchar(50) NOT NULL,
-  `jumlahLes` int(11) NOT NULL
+  `namaSekolah` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
