@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2018 at 07:01 AM
+-- Generation Time: Apr 26, 2018 at 07:28 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -29,8 +29,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `guru` (
   `idGuru` int(11) NOT NULL,
   `userName` varchar(30) NOT NULL,
-  `noKTP` int(11) NOT NULL
+  `noKTP` int(11) NOT NULL,
+  `pendidikanTerakhir` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `guru`
+--
+
+INSERT INTO `guru` (`idGuru`, `userName`, `noKTP`, `pendidikanTerakhir`) VALUES
+(1, 'JL', 1234, 'SMA');
 
 -- --------------------------------------------------------
 
@@ -121,6 +129,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`nama`, `userName`, `alamat`, `jenisKelamin`, `idKecamatan`, `idKelurahan`, `pass`) VALUES
+('Joshua Laurich', 'JL', 'Jl.Elang', 'laki-laki', 4, 3, 'e10adc3949ba59abbe56e057f20f883e'),
 ('Jason', 'jy', 'jl Pasadena', 'laki-laki', 1, 1, '25f9e794323b453885f5181f1b624d0b'),
 ('Yehezkiel', 'kikil', 'Jl kopo no 341', 'laki-laki', 1, 1, '41d96a32a1ba29a6b996e0ae515c4c60');
 
@@ -171,7 +180,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `kecamatan`
 --
