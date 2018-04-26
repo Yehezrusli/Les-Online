@@ -81,11 +81,10 @@ INSERT INTO `kecamatan` (`idKecamatan`, `namaKecamatan`) VALUES
 
 CREATE TABLE `kelurahan` (
   `idKelurahan` int(11) NOT NULL,
-  `namaKelurahan` varchar(30) NOT NULL,
-  `kecamatan` int(11) NOT NULL
+  `namaKelurahan` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `kelurahan` (`idKelurahan`, `nama`) VALUES
+INSERT INTO `kelurahan` (`idKelurahan`, `namaKelurahan`) VALUES
 (1, 'Ciroyom'),
 (2, 'Garuda'),
 (3, 'Maleber'),
