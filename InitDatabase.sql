@@ -44,9 +44,10 @@ CREATE TABLE `guru` (
 CREATE TABLE `jadwal` (
   `idJadwal` int(11) NOT NULL,
   `idGuru` int(11) NOT NULL,
-  `waktu` int(11) NOT NULL,
+  `jam` int(11) NOT NULL,
   `idPelajaran` int(11) NOT NULL,
-  `available` int(11) NOT NULL
+  `available` int(11) NOT NULL,
+  `hari varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

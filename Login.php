@@ -16,7 +16,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
         #bungkus {
@@ -101,26 +100,59 @@
                 </fieldset>
              </form>
              <?php
-                if(isset($uname)){
-                    $query = "SELECT userName, pass FROM user WHERE userName = '$uname'" ;
-                    $result = $con->query($query);
-
+                session_start();
+                if(isset($_POST['login'])){
+                    if($uname == 'kikil' || $uname == 'jy'){
+                        $query = "SELECT user.userName, pass FROM user WHERE user.userName = '$uname'";
+                        $result = $con->query($query);
                         if(!isset($uname) || empty($uname)){
                             echo 'Usernama Harus Diisi';
                         } else if(!isset($password) || empty($password)){
                             echo 'Password Harus Diisi';
                         } else if($result && $result->num_rows > 0){
                             $row = $result->fetch_array();
-                            echo $row['pass'];
                             if($row['pass'] == md5("$password")){
-                                header("Location:PageMuridHome.php");
-                                echo "success";
+                                header("Location:PageAdminHome.php");
                             }else{
                                 echo "Wrong Password";
                             }
                         }
+                    }else{
+                        $query = "SELECT user.userName, pass FROM user JOIN murid on murid.userName = user.userName WHERE user.userName = '$uname'";
+                        $result = $con->query($query);
+                        if($result->num_rows > 0){
+                            if(!isset($uname) || empty($uname)){
+                                echo 'Usernama Harus Diisi';
+                            } else if(!isset($password) || empty($password)){
+                                echo 'Password Harus Diisi';
+                            } else if($result && $result->num_rows > 0){
+                                $row = $result->fetch_array();
+                                if($row['pass'] == md5("$password")){
+                                    $_SESSION['uname'] = $uname;
+                                    header("Location:PageMuridHome.php");
+                                }else{
+                                    echo "Wrong Password";
+                                }
+                            }
+                    }else{
+                        $query = "SELECT user.userName, pass FROM user JOIN guru on guru.userName = user.userName WHERE user.userName = '$uname'";
+                        $result = $con->query($query);
+                        if(!isset($uname) || empty($uname)){
+                            echo 'Usernama Harus Diisi';
+                        } else if(!isset($password) || empty($password)){
+                            echo 'Password Harus Diisi';
+                        } else if($result && $result->num_rows > 0){
+                            $row = $result->fetch_array();
+                            if($row['pass'] == md5("$password")){
+                                $_SESSION['uname'] = $uname;
+                                header("Location:PageGuruHome.php");
+                            }else{
+                                echo "Wrong Password";
+                            }
+                        }
+                    }
                 }
-                    
+            }        
                 
              ?>
         </div>

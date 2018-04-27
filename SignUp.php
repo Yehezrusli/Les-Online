@@ -277,11 +277,8 @@
             $sekolah = $_POST['sekolah'];
             $kelas = $_POST['kelas'];
             $username = $_POST['uNameM'];
-            echo $username;
             $nama = $_POST['namaM'];
-            echo $nama;
             $alamat = $_POST['alamatM'];
-            echo $alamat;
             $gender = $_POST['genderM'];
             $kecamatan = $_POST['kecamatanM'];
             $kelurahan = $_POST['kelurahanM'];
