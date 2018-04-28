@@ -3,6 +3,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
+    margin-bottom: 70px;
     background-color: rgba(231, 241, 245, 0.8);
 
 }
@@ -10,7 +11,7 @@
 form{
     padding: 30px;
     padding-top: 15px;
-    width: 45%;
+    width: inherit;
 }
 
 option{
@@ -22,7 +23,10 @@ option{
 fieldset {
     border: 1px solid;
     margin-bottom: 30px;
-    width: 200%;
+    margin-left: 30px;
+    margin-top: 30px;
+    width: 630px;
+
 }
 
 label {
@@ -46,9 +50,7 @@ input[type=submit] {
 table {
 	border: 1px solid teal;
     border-collapse: collapse;
-    margin: 20px;
-    padding-top: 5%;
-    margin-right:7%;
+    margin-left: 50px;
 }
 
 td, tr{
@@ -60,8 +62,8 @@ td, tr{
 }
 
 th {
-    padding-left: 50px;
-	padding-right: 50px;
+    padding-left: 45px;
+	padding-right: 45px;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	border: 1px solid teal;
@@ -70,4 +72,9 @@ th {
     color: white;
     font-family: fantasy;
     font-size: 12px;
+}
+
+#rahasia{
+    position: absolute;
+    visibility: hidden;
 }

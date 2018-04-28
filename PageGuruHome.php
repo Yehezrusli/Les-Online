@@ -56,11 +56,10 @@
                 </select>
                 <br>
                 <br>
-
-                <input type="button" id="delete" value="DELETE" 
-                >
                 <input type="submit" name="add" value="ADD">
             </fieldset>
+            </form>
+
             <?php
                     if(isset($_GET['add'])){
                         $hari = $_GET['hari'];
@@ -69,14 +68,23 @@
 
                         $query = "INSERT INTO jadwal(idGuru, jam, idPelajaran, available, hari) VALUES($id, '$jam', $pel, 1, '$hari')";
                         $con->query($query);
+                        header("Location:PageGuruHome.php");
+
                         }
                     }
                 }
             ?>
-            <fieldset id="list">
-                    <?php
-                    //echo $id;
-                    $query = "SELECT jadwal.hari AS hari, jadwal.jam as jam, pelajaran.mataPelajaran as matPel FROM jadwal JOIN pelajaran on jadwal.idPelajaran=pelajaran.idPelajaran WHERE jadwal.idGuru = $id AND jadwal.available = 1";
+            <form action="" method="post">
+                <fieldset>
+                <?php
+                    if(isset($_POST['hapus'])){
+                    $id = $_POST['rahasia'];
+                    $query = "DELETE FROM jadwal WHERE idJadwal = $id";
+                    $con->query($query);
+                    header("Location:PageGuruHome.php");
+
+                }
+                    $query = "SELECT jadwal.hari AS hari, jadwal.jam as jam, pelajaran.mataPelajaran as matPel, jadwal.idJadwal AS id FROM jadwal JOIN pelajaran on jadwal.idPelajaran=pelajaran.idPelajaran WHERE jadwal.idGuru = $id AND jadwal.available = 1 ORDER BY id";
                     $result = $con->query($query);
                     if($result->num_rows == 0){
                         echo "<h1>BELUM MEMILIKI JADWAL</h1>";
@@ -91,16 +99,19 @@
                         echo "</tr>";
                         while($row = $result->fetch_array()){
                             echo "<tr>";
-                            echo "<td>".$row['hari']."</td>";
+                            echo '<form method='."post".'>';
+                            echo '<td>'.$row["hari"].'</td>';
                             echo "<td>".$row['jam']."</td>";
                             echo "<td>".$row['matPel']."</td>";
-                            echo "<td>"
+                            echo '<td><input type="submit" name="hapus" value="DELETE" onclick="hapus(1)">';
+                            echo '<input id="rahasia" type="text" value='.$row["id"].' name="rahasia">';
+                            echo "</form>";
                         }
+                        echo "</form>";
                     }
                     ?>
-                </table>
-            </fieldset>
-        </form>
-    </div>
+                </fieldset>
+            </form>
+        </div>
 </body>
 </html>

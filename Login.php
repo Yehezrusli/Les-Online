@@ -7,6 +7,7 @@
     if(isset($_POST['password'])){
         $password = $_POST['password']; 
     }
+
 ?>
 
 <!DOCTYPE html>

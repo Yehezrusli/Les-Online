@@ -22,10 +22,10 @@
     <div>
         <ul>
             <li>
-                <a href="PageGuruHome.php">Home</a>
+                <a href="PageMuridHome.php">Home</a>
             </li>
             <li>
-                <a href="PageGuruOrder.php">Order Les</a>
+                <a href="PageMuridOrder.php">Order Les</a>
             </li>
             <li>
                 <a href="">Profil</a>
