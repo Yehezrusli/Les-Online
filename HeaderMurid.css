@@ -1,6 +1,7 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 
@@ -88,19 +89,6 @@ li a:hover {
     text-decoration: none;
 }
 
-#info{
-    float: right;
-    margin-right: 100px;
-    padding: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: rgba(173, 190, 247, 0.8);
-
-}
 
 
-#data{
-    font-size: 20px;
-    font-family: fantasy;
-}
 

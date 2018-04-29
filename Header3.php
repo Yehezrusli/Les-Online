@@ -33,14 +33,6 @@
         </ul>
     </div>
 
-    <div id="info">
-        <p id="data">Nama : </p>
-        <p id="data">ID Murid : </p>
-        <p id="data">Status : </p>
-        <p id="data">Sekolah :</p>
-    </div>
-
-
 </body>
 
 </html>

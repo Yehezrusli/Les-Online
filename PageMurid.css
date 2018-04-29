@@ -1,7 +1,6 @@
 #bingkai{
     width: 59%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 150px;
     margin-top: 70px;
     margin-bottom: 70px;
     background-color: rgba(231, 241, 245, 0.8);
@@ -77,3 +76,35 @@ option{
     margin-bottom: 5px;
 }
 
+#info{
+    float: right;
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 230px;
+    height: 100%;
+    background-color: rgba(173, 190, 247, 0.8);
+
+}
+
+#data{
+    margin-top: 10px;
+    font-size: 15px;
+    font-family: fantasy;
+}
+
+p{
+    margin-top: 25px;
+    font-family: fantasy;
+    font-size: 30px;
+}
+
+#bungkus{
+    background-color: rgba(74, 113, 240, 0.8);
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 10px;
+    height: auto;
+    width: auto;
+}

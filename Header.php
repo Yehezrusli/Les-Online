@@ -28,18 +28,10 @@
                 <a href="PageMuridOrder.php">Order Les</a>
             </li>
             <li>
-                <a href="">Profil</a>
+                <a href="PageMuridProfil.php">Profil</a>
             </li>
         </ul>
     </div>
-
-    <div id="info">
-        <p id="data">Nama : </p>
-        <p id="data">ID Murid : </p>
-        <p id="data">Status : </p>
-        <p id="data">Sekolah :</p>
-    </div>
-
 
 </body>
 

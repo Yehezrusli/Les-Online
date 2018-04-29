@@ -21,7 +21,24 @@
 
 </head>
 <body>
-    <div class="tabwaktu">
+    <div id="info">
+                <p>Guru</p>
+                <br>
+                <div id="bungkus">
+                    <?php
+                        $query2 = "SELECT user.nama as nama, guru.idGuru as idGuru, guru.pendidikanTerakhir as pendidikan FROM user JOIN guru on user.userName = guru.userName WHERE guru.userName = '$temp'";
+                        if($result = $con->query($query2)){
+                            while($row = $result->fetch_array()){
+                            echo '<p id="data">Nama: '.$row['nama'].'</p>';
+                            echo '<p id="data">ID Murid: '.$row['idGuru'].'</p>';
+                            echo '<p id="data">Pendidikan Terakhir: '.$row['pendidikan'].'</p>';
+                            }
+                        }
+                    ?>
+                </div>
+        </div>
+    
+        <div class="tabwaktu">
         <form method="get" action="">
             <fieldset>
                 <legend>Input Waktu Les</legend>

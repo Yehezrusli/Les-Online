@@ -21,6 +21,22 @@
 
 </head>
 <body>
+    <div id="info">
+                    <p>Guru</p>
+                    <br>
+                    <div id="bungkus">
+                        <?php
+                            $query2 = "SELECT user.nama as nama, guru.idGuru as idGuru, guru.pendidikanTerakhir as pendidikan FROM user JOIN guru on user.userName = guru.userName WHERE guru.userName = '$temp'";
+                            if($result = $con->query($query2)){
+                                while($row = $result->fetch_array()){
+                                echo '<p id="data">Nama: '.$row['nama'].'</p>';
+                                echo '<p id="data">ID Murid: '.$row['idGuru'].'</p>';
+                                echo '<p id="data">Pendidikan Terakhir: '.$row['pendidikan'].'</p>';
+                                }
+                            }
+                        ?>
+                    </div>
+            </div>
     <div class="tabwaktu">
         <form method="post" action="">
             <?php
@@ -31,8 +47,10 @@
                 $con->query($query3);
                 $query3 = "UPDATE les SET statusLes = 0 WHERE idLes = $idLes";
                 $con->query($query3);
+                $query3 = "UPDATE les SET tanggalLes = CURDATE() WHERE idLes = $idLes";
+                $con->query($query3);
             }
-             $query = "SELECT user.nama as nama, jadwal.hari as hari, jadwal.jam as jam, pelajaran.mataPelajaran as matPel, les.idLes as idLes, jadwal.idJadwal as idJadwal FROM user JOIN murid on user.userName = murid.userName JOIN les on murid.idMurid = les.idMurid JOIN jadwal on jadwal.idJadwal = les.idJadwal JOIN pelajaran on pelajaran.idPelajaran = jadwal.idPelajaran WHERE les.statusLes = 1 and jadwal.idGuru = $id";
+             $query = "SELECT user.nama as nama, user.alamat as alamat, jadwal.hari as hari, jadwal.jam as jam, pelajaran.mataPelajaran as matPel, les.idLes as idLes, jadwal.idJadwal as idJadwal FROM user JOIN murid on user.userName = murid.userName JOIN les on murid.idMurid = les.idMurid JOIN jadwal on jadwal.idJadwal = les.idJadwal JOIN pelajaran on pelajaran.idPelajaran = jadwal.idPelajaran WHERE les.statusLes = 1 and jadwal.idGuru = $id";
              $result = $con->query($query);
              if($result->num_rows == 0){
                  echo "<h1>BELUM MEMILIKI JADWAL</h1>";
@@ -41,6 +59,7 @@
                 echo "<table>";
                 echo "<tr>";
                 echo "<th>Nama Murid</th>";
+                echo "<th>Alamat</th>";
                 echo "<th>Hari</th>";
                 echo "<th>Jam</th>";
                 echo "<th>Mata Pelajaran</th>";
@@ -50,6 +69,7 @@
                     echo "<tr>";
                     echo '<form method='."post".'>';
                     echo '<td>'.$row['nama'].'</td>';
+                    echo '<td>'.$row['alamat'].'</td>';
                     echo '<td>'.$row["hari"].'</td>';
                     echo "<td>".$row['jam']."</td>";
                     echo "<td>".$row['matPel']."</td>";

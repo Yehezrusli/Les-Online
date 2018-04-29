@@ -88,34 +88,3 @@ li a:hover {
     text-decoration: none;
 }
 
-#info{
-    float: right;
-    margin-right: 100px;
-    padding: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: rgba(173, 190, 247, 0.8);
-
-}
-
-
-#data{
-    font-size: 20px;
-    font-family: fantasy;
-}
-
-#order{
-    margin-left: 5%;
-    padding-top: 20px;
-    padding-bottom: 50px;
-}
-
-#bingkai{
-    background-color: rgba(247, 247, 248, 0.8);
-    width: inherit;
-    height: inherit;
-    margin-left: 11%;
-    margin-top: 4%;
-    position: absolute;
-}
-
