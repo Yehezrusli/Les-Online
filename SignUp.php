@@ -242,7 +242,7 @@
                 <?php
                         if($result = $con->query($query2)){
                             while($row = $result->fetch_array()){
-                                echo '<option value='.$row["idKelurahan"].'>'.$row['nama'].'</option>';
+                                echo '<option value='.$row["idKelurahan"].'>'.$row['namaKelurahan'].'</option>';
                             }
                         }
                     ?>
@@ -252,7 +252,7 @@
                 <?php
                         if($result = $con->query($query)){
                             while($row = $result->fetch_array()){
-                                echo '<option value='.$row['idKecamatan'].'>'.$row['nama'].'</option>';
+                                echo '<option value='.$row['idKecamatan'].'>'.$row['namaKecamatan'].'</option>';
                             }
                         }
                     ?>
