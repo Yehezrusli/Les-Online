@@ -7,7 +7,8 @@
     if($result = $con->query($query2)){
         while($row = $result->fetch_array()){
         $id = $row['idGuru'];
-
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,8 +72,6 @@
                         header("Location:PageGuruHome.php");
 
                         }
-                    }
-                }
             ?>
             <form action="" method="post">
                 <fieldset>
