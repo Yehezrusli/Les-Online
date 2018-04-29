@@ -25,10 +25,10 @@
                 <a href="">Home</a>
             </li>
             <li>
-                <a href="">Kelurahan</a>
+                <a href="PageAdminKelurahan.php">Kelurahan</a>
             </li>
             <li>
-                <a href="PageAdminKecamatan">Kecamatan</a>
+                <a href="PageAdminKecamatan.php">Kecamatan</a>
             </li>
             <li>
                 <a href="">Rank List</a>
