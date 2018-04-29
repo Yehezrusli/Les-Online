@@ -1,6 +1,6 @@
 <?php
     include("Header2.php");
-    $query = "SELECT * FROM Kecamatan"
+    $query = "SELECT * FROM kelurahan"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,46 +17,46 @@
 
         <form action="" method="post">
             <?php
-            $idKec = $_POST['rahasia'];
+            $idkel = $_POST['rahasia'];
             if(isset($_POST['edit'])){
-                $namaKec = $_POST['outNamaKec'];
-                $query2 = "UPDATE Kecamatan SET namaKecamatan = '$namaKec' WHERE idKecamatan = $idKec";
+                $namakel = $_POST['outNamakel'];
+                $query2 = "UPDATE kelurahan SET namakelurahan = '$namakel' WHERE idkelurahan = $idkel";
                 $con->query($query2);
             }
 
             if(isset($_POST['delete'])){
-                $query4 = "DELETE FROM Kecamatan WHERE idKecamatan = $idKec";
+                $query4 = "DELETE FROM kelurahan WHERE idkelurahan = $idkel";
                 $con->query($query4);
             }
             
             if(isset($_POST['insertButton'])){
-                $insertName = $_POST['insertNamaKec'];
-                $query3 = "INSERT INTO kecamatan(namaKecamatan) VALUES ('$insertName')";
+                $insertName = $_POST['insertNamakel'];
+                $query3 = "INSERT INTO kelurahan(namakelurahan) VALUES ('$insertName')";
                 $con->query($query3);
             }
             $result = $con->query($query);
-                echo "<h1>List Kecamatan</h1>";
-                echo '<label>Nama Kecamatan: </label><input id="insertNamaKec" type="text" name="insertNamaKec">';
-                echo '<input type="submit" value="Insert Kecamatan" id="insertButton" name="insertButton">';
+                echo "<h1>List kelurahan</h1>";
+                echo '<label>Nama kelurahan: </label><input id="insertNamakel" type="text" name="insertNamakel">';
+                echo '<input type="submit" value="Insert kelurahan" id="insertButton" name="insertButton">';
                 echo "<table>";
                 echo "<tr>";
-                echo "<th>idKecamatan</th>";
-                echo "<th>Nama Kecamatan</th>";
-                echo "<th>Ganti Nama Kecamatan</th>";
+                echo "<th>idkelurahan</th>";
+                echo "<th>Nama kelurahan</th>";
+                echo "<th>Ganti Nama kelurahan</th>";
                 echo "<th></th>";
                 echo "<th></th>";
                 echo "</tr>";
                 while($row = $result->fetch_array()){
                     echo "<tr>";
                     echo '<form method='."post".'>';
-                    echo '<td>'.$row["idKecamatan"].'</td>';
-                    echo "<td>".$row['namaKecamatan']."</td>";
-                    $currNamaKecamatan = $row['namaKecamatan'];
-                    echo "<td><input type='text' name='outNamaKec' value=".$row['namaKecamatan'].">";
+                    echo '<td>'.$row["idkelurahan"].'</td>';
+                    echo "<td>".$row['namakelurahan']."</td>";
+                    $currNamakelurahan = $row['namakelurahan'];
+                    echo "<td><input type='text' name='outNamakel' value=".$row['namakelurahan'].">";
                     echo '<td><input type="submit" name="edit" value="EDIT">';
                     echo '<td><input type="submit" name="delete" value="DELETE">';
-                    echo '<input id="rahasia" type="text" value='.$row["idKecamatan"].' name="rahasia">';
-                    echo '<input id="rahasia" type="text" value='.$row["namaKecamatan"].' name="rahasia2">';
+                    echo '<input id="rahasia" type="text" value='.$row["idkelurahan"].' name="rahasia">';
+                    echo '<input id="rahasia" type="text" value='.$row["namakelurahan"].' name="rahasia2">';
                     echo "</form>";
                 }
                 echo "</form>";
