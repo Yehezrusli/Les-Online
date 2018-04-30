@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="PageMurid.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="HeaderGuru.css" />
 
 </head>
 
@@ -25,10 +25,10 @@
                 <a href="">Home</a>
             </li>
             <li>
-                <a href="">Kelurahan</a>
+                <a href="PageAdminKelurahan.php">Kelurahan</a>
             </li>
             <li>
-                <a href="">Kecamatan</a>
+                <a href="PageAdminKecamatan.php">Kecamatan</a>
             </li>
             <li>
                 <a href="">Rank List</a>

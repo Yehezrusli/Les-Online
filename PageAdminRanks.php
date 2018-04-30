@@ -1,7 +1,6 @@
 <?php
     include("Header2.php");
-    $query = "SELECT Les.idMurid, User.username, User.nama, COUNT(idLes) as 'JumlahLes' FROM Les JOIN Murid ON Les.idMurid = Murid.idMurid JOIN User ON User.username = Murid.username GROUP BY Les.idMurid ORDER BY 'JumlahLes' DESC LIMIT 0,10";
-    $query2 = "SELECT idGuru, user.username, user.nama, COUNT(idLes) as 'JumlahLes' FROM Les JOIN Jadwal ON Les.idJadwal = jadwal.idJadwal JOIN user ON user.username = Guru.username GROUP BY Les.idGuru ORDER BY 'JumlahLes' DESC LIMIT 0,10";
+    $query = "SELECT * FROM Kecamatan"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,44 +14,43 @@
 </head>
 <body>
     <div id="bingkai">
-            <?php
-            $result = $con->query($query);
-                echo "<h1>Rank Murid</h1>";
-                echo "<table>";
-                echo "<tr>";
-                echo "<th>ID User</th>";
-                echo "<th>Username</th>";
-                echo "<th>Nama Murid</th>";
-                echo "<th>Jumlah Les</th>";
-                echo "</tr>";
-                while($row = $result->fetch_array()){
-                    echo "<tr>";
-                    echo '<form method='."post".'>';
-                    echo '<td>'.$row["idMurid"].'</td>';
-                    echo "<td>".$row['username']."</td>";
-                    echo "<td>".$row['nama']."</td>";
-                    echo "<td>".$row['JumlahLes']."</td>";
-                }
-                echo "</table>";
 
-            $result = $con->query($query2);
-                echo "<h1>Rank Guru</h1>";
+        <form action="" method="post">
+            <?php
+
+            if(isset($_POST['delete'])){
+                $idKec = $_POST['rahasia'];
+                $query2 = "DELETE FROM Kecamatan WHERE idKecamatan = $idKec";
+                $con->query($query2);
+            }
+            if(isset($_POST['insertButton'])){
+                $insertName = $_POST['insertNamaKec'];
+                $query3 = "INSERT INTO kecamatan(namaKecamatan) VALUES ($insertName)";
+                $con->query($query3);
+            }
+            $result = $con->query($query);
+                echo "<h1>List Kecamatan</h1>";
+                echo '<label>Nama Kecamatan: </label><input id="insertNamaKec" type="text" name="insertNamaKec">';
+                echo '<input type="submit" value="Insert Kecamatan" id="insertButton" name="insertButton">';
                 echo "<table>";
                 echo "<tr>";
-                echo "<th>ID User</th>";
-                echo "<th>Username</th>";
-                echo "<th>Nama Guru</th>";
-                echo "<th>Jumlah Les</th>";
+                echo "<th>idKecamatan</th>";
+                echo "<th>Nama Kecamatan</th>";
+                echo "<th></th>";
+                echo "<th></th>";
                 echo "</tr>";
                 while($row = $result->fetch_array()){
                     echo "<tr>";
                     echo '<form method='."post".'>';
-                    echo '<td>'.$row["idGuru"].'</td>';
-                    echo "<td>".$row['username']."</td>";
-                    echo "<td>".$row['nama']."</td>";
-                    echo "<td>".$row['JumlahLes']."</td>";
+                    echo '<td>'.$row["idKecamatan"].'</td>';
+                    echo "<td>".$row['namaKecamatan']."</td>";
+                    echo '<td><input type="submit" name="edit" value="EDIT">';
+                    echo '<td><input type="submit" name="delete" value="DELETE">';
+                    echo '<input id="rahasia" type="text" value='.$row["idKecamatan"].' name="rahasia">';
+                    echo '<input id="rahasia" type="text" value='.$row["namaKecamatan"].' name="rahasia2">';
+                    echo "</form>";
                 }
-                echo "</table>";
+                echo "</form>";
             ?>
 </body>
 </html>

@@ -86,7 +86,7 @@
                     header("Location:PageGuruProfil.php");
 
                 }
-?>
+        ?>
     </form>
     </div>
 
