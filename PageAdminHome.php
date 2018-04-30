@@ -11,8 +11,9 @@
     <link rel="stylesheet" type="text/css" media="screen" href="PageAdmin.css" />
 </head>
 <body>
-    <div id="bingkai">
-        <p>Welcome Admin</p>
+    <div id="home">
+        <form action="">
+        <p id="welcome">Welcome Admin</p>
+</form>
     </div>
 </body>
-</html>

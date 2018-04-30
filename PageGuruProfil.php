@@ -5,7 +5,11 @@
     session_start();
     $temp =  $_SESSION['uname'];
     echo $temp;
-    $query2 = "SELECT user.nama as nama, user.userName as username, user.alamat as alamat, kecamatan.nama as kecamatan, kelurahan.nama as kelurahan, guru.pendidikanTerakhir as pendidikan FROM guru JOIN user ON guru.userName=user.userName JOIN kelurahan on kelurahan.idKelurahan = user.idKelurahan JOIN kecamatan ON kecamatan.idKecamatan = user.idKecamatan WHERE user.username = '$temp'";
+    $query2 = "SELECT user.nama as nama, user.userName as username, user.alamat as alamat, kecamatan.nama as kecamatan, kelurahan.nama as kelurahan, guru.pendidikanTerakhir as pendidikan 
+    FROM guru 
+    JOIN user ON guru.userName=user.userName 
+    JOIN kelurahan on kelurahan.idKelurahan = user.idKelurahan 
+    JOIN kecamatan ON kecamatan.idKecamatan = user.idKecamatan WHERE user.username = '$temp'";
     
 ?>
 <!DOCTYPE html>

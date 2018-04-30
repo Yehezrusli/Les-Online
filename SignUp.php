@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         option{
-            width: 178px;
+            width: 174px;
             height: 20px;
         }
 
@@ -52,7 +52,7 @@
         }
 
         input[type=number] {
-            width: 200px;
+            width: 199px;
             height: 20px;
             display: inline-block;
         }
@@ -136,6 +136,9 @@
                 <label>No KTP</label>
                 <input name="KTP" type="text" id="KTP">
                 <br>
+                <label>No Telepon</label>
+                <input name="telepon" type="text" id="kelas">
+                <br>
                 <label>Pendidikan Terakhir</label>
                 <select name="pendidikan">
                     <option value="SD">SD</option>
@@ -194,6 +197,7 @@
             $noKTP = $_POST['KTP'];
             $username = $_POST['uNameG'];
             $nama = $_POST['namaG'];
+            $telepon = $_POST['telepon'];
             $alamat = $_POST['alamatG'];
             $gender = $_POST['genderG'];
             $pendidikan = $_POST["pendidikan"];
@@ -201,7 +205,7 @@
             $kelurahan = $_POST['KelurahanG'];
             
             if($pass == $cpass){
-                $insertUser = "INSERT INTO user(nama, userName, alamat, jenisKelamin, idKecamatan, idKelurahan, pass) VALUES('$nama', '$username', '$alamat', '$gender', $kecamatan, $kelurahan, '$hidepass')";  
+                $insertUser = "INSERT INTO user(nama, userName, alamat, jenisKelamin, idKecamatan, idKelurahan, pass, nomorTelepon, stat) VALUES('$nama', '$username', '$alamat', '$gender', $kecamatan, $kelurahan, '$hidepass', '$telepon', 1)"; 
                 $insertGuru = "INSERT INTO guru(userName, noKTP, pendidikanTerakhir) VALUES('$username', $noKTP, '$pendidikan')";
                 $con->query($insertGuru);
                 $con->query($insertUser);
@@ -227,6 +231,9 @@
                 <br>
                 <label>Kelas</label>
                 <input name="kelas" type="number" id="kelas">
+                <br>
+                <label>No Telepon</label>
+                <input name="telepon" type="text" id="kelas">
                 <br>
                 <label>Password</label>
                 <input name="passM" type="password" id="password">
@@ -276,6 +283,7 @@
             $cpass = $_POST['confirmPassM'];
             $sekolah = $_POST['sekolah'];
             $kelas = $_POST['kelas'];
+            $telepon = $_POST['telepon'];
             $username = $_POST['uNameM'];
             $nama = $_POST['namaM'];
             $alamat = $_POST['alamatM'];
@@ -283,7 +291,7 @@
             $kecamatan = $_POST['kecamatanM'];
             $kelurahan = $_POST['kelurahanM'];
             if($pass == $cpass){
-                $insertUser = "INSERT INTO user(nama, userName, alamat, jenisKelamin, idKecamatan, idKelurahan, pass) VALUES('$nama', '$username', '$alamat', '$gender', $kecamatan, $kelurahan, '$hidepass')";  
+                $insertUser = "INSERT INTO user(nama, userName, alamat, jenisKelamin, idKecamatan, idKelurahan, pass, nomorTelepon, stat) VALUES('$nama', '$username', '$alamat', '$gender', $kecamatan, $kelurahan, '$hidepass', '$telepon', 1)";  
                 $insertMurid = "INSERT INTO murid(userName, kelas, namaSekolah) VALUES('$username', $kelas, '$sekolah')";
                 $con->query($insertUser);
                 $con->query($insertMurid);

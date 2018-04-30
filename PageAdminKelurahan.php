@@ -1,5 +1,6 @@
 <?php
     include("Header2.php");
+    include("connection.php");
     $query = "SELECT * FROM kelurahan"
 ?>
 <!DOCTYPE html>

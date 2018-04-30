@@ -1,5 +1,6 @@
 <?php
     include("Header2.php");
+    include("connection.php");
     $query = "SELECT * FROM Kecamatan"
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,6 @@
 </head>
 <body>
     <div id="bingkai">
-
         <form action="" method="post">
             <?php
             if(isset($_POST['edit'])){
@@ -38,7 +38,7 @@
             $result = $con->query($query);
                 echo "<h1>List Kecamatan</h1>";
                 echo '<label>Nama Kecamatan: </label><input id="insertNamaKec" type="text" name="insertNamaKec">';
-                echo '<input type="submit" value="Insert Kecamatan" id="insertButton" name="insertButton">';
+                echo '<input type="submit" value="Insert" id="insertButton" name="insertButton">';
                 echo "<table>";
                 echo "<tr>";
                 echo "<th>idKecamatan</th>";

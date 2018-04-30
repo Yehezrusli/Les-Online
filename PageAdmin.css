@@ -131,3 +131,18 @@ label {
     margin-top: 5px;
     font-size: 20px;
 }
+
+#welcome{
+    font-family: fantasy;
+    font-size: 70px;
+}
+
+#home{
+    width: 23%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    background-color: rgba(231, 241, 245, 0.8);
+    text-align: center;
+}
