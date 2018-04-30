@@ -45,7 +45,7 @@
                     echo "<td><input type='text' name='outNama' id='outNama' value=".$row['nama']."></td>";
                     //echo "<td>".$row['nama']."</td>";
                     echo "<td><input type='text' name='outPass' id='outPass'></td>";
-                    echo "<td><input type='text' name='outNoTelp' id='outNoTelp' value=".$row['nomorTelepon']"></td>";
+                    //echo "<td><input type='text' name='outNoTelp' id='outNoTelp' value=".$row['nomorTelepon']"></td>";
                     echo "<td></td>";
                     echo '<td><input type="submit" name="edit" value="EDIT"></td>';
                     echo "<input type='text' id='rahasia' name='rahasia' value=".$user.">";
