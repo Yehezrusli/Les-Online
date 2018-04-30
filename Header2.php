@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" media="screen" href="HeaderGuru.css" />
+=======
+    <link rel="stylesheet" type="text/css" media="screen" href="Header.css" />
+>>>>>>> af6d3bdd025b3dc67ec18d8a63cbc7c8704ed8d8
 
 </head>
 
@@ -22,21 +26,22 @@
     <div>
         <ul>
             <li>
-                <a href="">Home</a>
-            </li>
-            <li>
                 <a href="PageAdminKelurahan.php">Kelurahan</a>
             </li>
             <li>
                 <a href="PageAdminKecamatan.php">Kecamatan</a>
             </li>
             <li>
-                <a href="">Rank List</a>
+                <a href="PageAdminRanks.php">Rank List</a>
+            </li>
+            <li>
+                <a href="PageAdminUserlist.php">User List</a>
             </li>
         </ul>
     </div>
 
     <div id="info">
+        <h1>WELCOME ADMIN</h1>
         <?php
             include("connection.php");
             session_start();
