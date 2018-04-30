@@ -19,7 +19,7 @@
             <?php
             $idKel = $_POST['rahasia'];
             if(isset($_POST['edit'])){
-                $namaKel = $_POST['outNamakel'];
+                $namaKel = $_POST['outNamaKel'];
                 $query2 = "UPDATE kelurahan SET namaKelurahan = '$namaKel' WHERE idKelurahan = $idKel";
                 $con->query($query2);
             }
@@ -51,9 +51,10 @@
                     echo '<form method='."post".'>';
                     echo '<td>'.$row["idKelurahan"].'</td>';
                     echo "<td>".$row['namaKelurahan']."</td>";
-                    echo "<td><input type='text' name='outNamaKel' value=".$row['namaKelurahan'].">";
-                    echo '<td><input type="submit" name="edit" value="EDIT">';
-                    echo '<td><input type="submit" name="delete" value="DELETE">';
+                    $currNamaKelurahan = $row['namaKelurahan'];
+                    echo "<td><input type='text' name='outNamaKel' value=".$row['namaKelurahan']."></td>";
+                    echo '<td><input type="submit" name="edit" value="EDIT"></td>';
+                    echo '<td><input type="submit" name="delete" value="DELETE"></td>';
                     echo '<input id="rahasia" type="text" value='.$row["idKelurahan"].' name="rahasia">';
                     echo '<input id="rahasia" type="text" value='.$row["namaKelurahan"].' name="rahasia2">';
                     echo "</form>";
