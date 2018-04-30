@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="PageMurid.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="Header.css" />
 
 </head>
 
@@ -22,21 +22,25 @@
     <div>
         <ul>
             <li>
-                <a href="">Home</a>
+                <a href="PageAdminHome.php">Home</a>
             </li>
             <li>
-                <a href="">Kelurahan</a>
+                <a href="PageAdminKelurahan.php">Kelurahan</a>
             </li>
             <li>
-                <a href="">Kecamatan</a>
+                <a href="PageAdminKecamatan.php">Kecamatan</a>
             </li>
             <li>
-                <a href="">Rank List</a>
+                <a href="PageAdminRanks.php">Rank List</a>
+            </li>
+            <li>
+                <a href="PageAdminUserlist.php">User List</a>
             </li>
         </ul>
     </div>
 
     <div id="info">
+        <h1>WELCOME ADMIN</h1>
         <?php
             include("connection.php");
             session_start();
@@ -45,7 +49,7 @@
             if($result = $con->query($query2)){
                 while($row = $result->fetch_array()){
                 echo '<p id="data">.Nama :'.$row['nama'].'</p>';
-                echo '<p id="data">ID Murid :'.$row['idMurid'].'</p>'
+                echo '<p id="data">ID Murid :'.$row['idMurid'].'</p>';
                 echo '<p id="data">Sekolah :'.$row['sekolah'].'</p>';
                 echo '<p id="data">Kelas :'.$row['kelas'].'</p>';
                 }
