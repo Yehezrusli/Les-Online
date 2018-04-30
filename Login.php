@@ -7,7 +7,9 @@
     if(isset($_POST['password'])){
         $password = $_POST['password']; 
     }
-
+    if(isset($_POST['stat'])){
+        $stat = $_POST['stat'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -118,7 +120,7 @@
                                 echo "Wrong Password";
                             }
                         }
-                    }else{
+                    }else if($stat == 1){
                         $query = "SELECT user.userName, pass FROM user JOIN murid on murid.userName = user.userName WHERE user.userName = '$uname'";
                         $result = $con->query($query);
                         if($result->num_rows > 0){
@@ -135,26 +137,25 @@
                                     echo "Wrong Password";
                                 }
                             }
-                    }else{
-                        $query = "SELECT user.userName, pass FROM user JOIN guru on guru.userName = user.userName WHERE user.userName = '$uname'";
-                        $result = $con->query($query);
-                        if(!isset($uname) || empty($uname)){
-                            echo 'Usernama Harus Diisi';
-                        } else if(!isset($password) || empty($password)){
-                            echo 'Password Harus Diisi';
-                        } else if($result && $result->num_rows > 0){
-                            $row = $result->fetch_array();
-                            if($row['pass'] == md5("$password")){
-                                $_SESSION['uname'] = $uname;
-                                header("Location:PageGuruHome.php");
-                            }else{
-                                echo "Wrong Password";
+                        }else{
+                            $query = "SELECT user.userName, pass FROM user JOIN guru on guru.userName = user.userName WHERE user.userName = '$uname'";
+                            $result = $con->query($query);
+                            if(!isset($uname) || empty($uname)){
+                                echo 'Usernama Harus Diisi';
+                            } else if(!isset($password) || empty($password)){
+                                echo 'Password Harus Diisi';
+                            } else if($result && $result->num_rows > 0){
+                                $row = $result->fetch_array();
+                                if($row['pass'] == md5("$password")){
+                                    $_SESSION['uname'] = $uname;
+                                    header("Location:PageGuruHome.php");
+                                }else{
+                                    echo "Wrong Password";
+                                }
                             }
                         }
                     }
-                }
-            }        
-                
+                }   
              ?>
         </div>
     </div>

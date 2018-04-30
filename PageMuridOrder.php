@@ -1,7 +1,7 @@
 <?php
     include("Header.php");
     include("connection.php");
-    $query = "SELECT user.nama as nama, jadwal.hari as hari, jadwal.jam as jam, pelajaran.mataPelajaran as matPel, jadwal.idJadwal as id, pelajaran.idPelajaran as idP FROM user JOIN guru on user.userName = guru.userName JOIN jadwal on jadwal.idGuru = guru.idGuru JOIN pelajaran on jadwal.idPelajaran = pelajaran.idPelajaran WHERE jadwal.available = 1";
+    $query = "SELECT user.nama as nama, jadwal.hari as hari, jadwal.jam as jam, pelajaran.mataPelajaran as matPel, jadwal.idJadwal as id, pelajaran.idPelajaran as idP FROM user JOIN guru on user.userName = guru.userName JOIN jadwal on jadwal.idGuru = guru.idGuru JOIN pelajaran on jadwal.idPelajaran = pelajaran.idPelajaran WHERE jadwal.available = 1 AND user.stat = 1";
     session_start();
     $temp =  $_SESSION['uname'];
     $query3 = "SELECT idMurid FROM murid WHERE username = '$temp'";
