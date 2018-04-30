@@ -45,7 +45,7 @@
             if($result = $con->query($query2)){
                 while($row = $result->fetch_array()){
                 echo '<p id="data">.Nama :'.$row['nama'].'</p>';
-                echo '<p id="data">ID Murid :'.$row['idMurid'].'</p>'
+                echo '<p id="data">ID Murid :'.$row['idMurid'].'</p>';
                 echo '<p id="data">Sekolah :'.$row['sekolah'].'</p>';
                 echo '<p id="data">Kelas :'.$row['kelas'].'</p>';
                 }
