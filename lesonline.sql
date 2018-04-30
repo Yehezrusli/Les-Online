@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2018 at 06:09 PM
+-- Generation Time: Apr 30, 2018 at 06:20 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -39,7 +39,8 @@ CREATE TABLE `guru` (
 
 INSERT INTO `guru` (`idGuru`, `userName`, `noKTP`, `pendidikanTerakhir`) VALUES
 (2, 'MIBD', 1234, 'S3'),
-(3, 'JL', 12345, 'SMA');
+(3, 'JL', 12345, 'SMA'),
+(4, 'ganteng', 32145, 'SD');
 
 -- --------------------------------------------------------
 
@@ -61,11 +62,10 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`idJadwal`, `idGuru`, `jam`, `idPelajaran`, `available`, `hari`) VALUES
-(19, 3, '14.00-15.00', 3, 1, 'Rabu'),
-(20, 3, '13.00-14.00', 1, 1, 'Jumat'),
-(21, 3, '13.00-14.00', 1, 1, 'Jumat'),
-(22, 3, '13.00-14.00', 1, 1, 'Jumat'),
-(23, 3, '13.00-14.00', 1, 1, 'Jumat');
+(4, 3, '15.00-16.00', 4, 0, 'Jumat'),
+(5, 2, '14.00-15.00', 2, 1, 'Senin'),
+(6, 2, '13.00-14.00', 1, 1, 'Senin'),
+(7, 2, '14.00-15.00', 4, 1, 'Senin');
 
 -- --------------------------------------------------------
 
@@ -90,10 +90,7 @@ INSERT INTO `kecamatan` (`idKecamatan`, `nama`) VALUES
 (5, 'Gunung Kidul'),
 (6, 'Bandung Kidul'),
 (7, 'Bandung Kaler'),
-(8, 'Astana anyar'),
-(9, 'Bojongloa Kidul'),
-(10, 'Bojongloa Kaler'),
-(11, 'Batununggal');
+(8, 'Astana anyar');
 
 -- --------------------------------------------------------
 
@@ -132,8 +129,26 @@ CREATE TABLE `les` (
   `idLes` int(11) NOT NULL,
   `idJadwal` int(11) NOT NULL,
   `idMurid` int(11) NOT NULL,
-  `tanggal` date NOT NULL
+  `tanggalOrder` date NOT NULL,
+  `tanggalLes` date DEFAULT NULL,
+  `statusLes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `les`
+--
+
+INSERT INTO `les` (`idLes`, `idJadwal`, `idMurid`, `tanggalOrder`, `tanggalLes`, `statusLes`) VALUES
+(20, 6, 1, '2018-04-29', '2018-04-29', 0),
+(21, 5, 1, '2018-04-29', '2018-04-29', 0),
+(22, 5, 1, '2018-04-29', '2018-04-29', 0),
+(23, 5, 1, '2018-04-29', '2018-04-29', 0),
+(24, 6, 1, '2018-04-29', '2018-04-29', 0),
+(26, 4, 2, '2018-04-29', '2018-04-29', 0),
+(27, 6, 1, '2018-04-29', '2018-04-29', 0),
+(28, 5, 1, '2018-04-29', '2018-04-29', 0),
+(29, 5, 2, '2018-04-29', '2018-04-29', 0),
+(30, 4, 2, '2018-04-29', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -153,7 +168,9 @@ CREATE TABLE `murid` (
 --
 
 INSERT INTO `murid` (`kelas`, `namaSekolah`, `userName`, `idMurid`) VALUES
-(4, 'SDK 1', 'fer', 1);
+(4, 'SDK', 'fer', 1),
+(4, 'graci', 'jely', 2),
+(4, 'SDK 6 BPK Penabur', 'cah', 3);
 
 -- --------------------------------------------------------
 
@@ -198,11 +215,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`nama`, `userName`, `alamat`, `jenisKelamin`, `idKecamatan`, `idKelurahan`, `pass`) VALUES
-('Ferdian', 'fer', 'pelosok', 'laki-laki', 4, 1, '827ccb0eea8a706c4c34a16891f84e7b'),
-('Joshua Laurich', 'JL', 'gatau', 'laki-laki', 6, 3, 'caf1a3dfb505ffed0d024130f58c5cfa'),
+('ganas', '', 'bandung', 'perempuan', 6, 7, '827ccb0eea8a706c4c34a16891f84e7b'),
+('Cahyadi', 'cah', 'maleber', 'laki-laki', 6, 4, '68053af2923e00204c3ca7c6a3150cf7'),
+('Ferdian', 'fer', 'pelosok', 'laki-laki', 1, 1, '827ccb0eea8a706c4c34a16891f84e7b'),
+('Gery', 'ganteng', 'muara', 'laki-laki', 1, 1, '4dd39f49f898c062283963c187532af8'),
+('Jely', 'jely', 'pelosok', 'laki-laki', 8, 6, 'df6d2338b2b8fce1ec2f6dda0a630eb0'),
 ('Jason', 'jy', 'jl Pasadena', 'laki-laki', 1, 1, '25f9e794323b453885f5181f1b624d0b'),
 ('Yehezkiel', 'kikil', 'Jl kopo no 341', 'laki-laki', 1, 1, '41d96a32a1ba29a6b996e0ae515c4c60'),
-('VERO', 'MIBD', 'gatau', 'perempuan', 4, 4, '827ccb0eea8a706c4c34a16891f84e7b');
+('Joshua', 'laurich', 'gatau', 'laki-laki', 1, 1, 'caf1a3dfb505ffed0d024130f58c5cfa');
 
 --
 -- Indexes for dumped tables
@@ -272,12 +292,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `idJadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idJadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `kecamatan`
 --
@@ -292,12 +312,12 @@ ALTER TABLE `kelurahan`
 -- AUTO_INCREMENT for table `les`
 --
 ALTER TABLE `les`
-  MODIFY `idLes` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idLes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `murid`
 --
 ALTER TABLE `murid`
-  MODIFY `idMurid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idMurid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pelajaran`
 --

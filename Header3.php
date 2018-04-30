@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="Header.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="HeaderGuru.css" />
 
 </head>
 
@@ -28,7 +28,7 @@
                 <a href="PageGuruOrder.php">Lihat Order</a>
             </li>
             <li>
-                <a href="">Profil</a>
+                <a href="PageGuruProfil.php">Profil</a>
             </li>
         </ul>
     </div>
